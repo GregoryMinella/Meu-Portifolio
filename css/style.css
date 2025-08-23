@@ -1,70 +1,62 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body
-{
-    background: url(../img/bg-desktop.jpg) no-repeat top center/cover;
+body {
+    background: url(imagens/bg-desktop.jpg) no-repeat top center/cover;
     height: 100vh;
+    color: white; /* tema dark */
 }
 
-body *
-{
-    color: white;
+.light body {
+    background: url(imagens/bg-desktop-light.jpg) no-repeat top center/cover;
+    color: black; /* tema light */
 }
 
-p
-{
+p {
     font-family: "Inter", sans-serif;
 }
 
-a
-{
+a {
     text-decoration: none;
+    color: inherit; /* segue a cor do body */
 }
 
-#container 
-{
+#container {
     width: 100%;
     max-width: 588px;
     margin: 56px auto 0px;
     padding: 0 24px;
 }
 
-#profile
-{
+#profile {
     text-align: center;
     padding: 24px;
 }
 
-#profile img
-{
+#profile img {
     width: 130px;
     height: 114px;
 }
 
-#profile p 
-{
+#profile p {
     font-weight: 500;
     line-height: 24px;
     margin-top: 8px;
 }
 
-#switch
-{
+#switch {
     position: relative;
     width: 64px;
     margin: 4px auto;
 }
 
-#switch button
-{
+#switch button {
     width: 32px;
     height: 32px;
-    background: white url(../img/moon-stars.svg) no-repeat center;
+    background: white url(/img/moon-stars.svg) no-repeat center;
     border: 0;
     border-radius: 50%;
     position: absolute;
@@ -75,20 +67,16 @@ a
     animation: slide-back 0.2s;
 }
 
-.light #switch button
-{
+.light #switch button {
     animation: slide-in 0.2s forwards;
-    background: white url(../img/sun.svg) no-repeat center;
+    background: white url(/img/sun.svg) no-repeat center;
 }
 
-#switch button:hover
-{
+#switch button:hover {
     outline: 8px solid rgba(255, 255, 255, 0.2);
-
 }
 
-#switch span
-{
+#switch span {
     display: block;
     width: 64px;
     height: 24px;
@@ -99,138 +87,91 @@ a
     border-radius: 9999px;
 }
 
-.light #switch span
-{
+.light #switch span {
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-ul
-{
+ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap:  16px;
+    gap: 16px;
     padding: 24px 0;
 }
 
-ul li a 
-{
+ul li a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     padding: 16px 24px;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid currentColor; /* borda acompanha a cor do tema */
     border-radius: 8px;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    text-decoration: none;
     font-weight: 500;
-    transition: background 0.2s;
+    transition: background 0.2s, border 0.2s;
+    color: inherit; /* segue a cor do body */
 }
 
-ul li a:hover
-{
+ul li a:hover {
     background: rgba(0, 0, 0, 0.02);
-    border: 1.5px solid white;
+    border-width: 1.5px;
 }
 
-.light ul li a
-{
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-.light ul li a:hover
-{
-    background: rgba(0, 0, 0, 0.02);
-    border: 1.5px solid black;
-}
-
-#social-links
-{
+#social-links {
     display: flex;
     justify-content: center;
     padding: 24px 0;
     font-size: 24px;
 }
 
-#social-links a
-{
-    color: white;
+#social-links a {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px;
     transition: background 0.2s;
     border-radius: 50%;
+    color: inherit; /* segue a cor do body */
 }
 
-#social-links a:hover
-{
+#social-links a:hover {
     background: rgba(0, 0, 0, 0.1);
 }
 
-footer
-{
+footer {
     padding: 24px 0;
     text-align: center;
     font-size: 14px;
+    color: inherit; /* segue a cor do body */
 }
 
-.profile-photo
-{
-    border-radius: 50%;
-    border: 3px solid #0b97b9;
+.profile-photo {
+    border-radius: 80%;
+    border: 3px solid currentColor; /* borda acompanha a cor do tema */
 }
 
-.light .profile-photo
-{
-    border: 3px solid #4B55EA;
+/* =========================
+   ANIMAÇÕES
+   ========================= */
+@keyframes slide-in {
+    from { left: 0; }
+    to   { left: 50%; }
 }
 
-.light a, .light p, .light ion-con
-{
-    color: black;
+@keyframes slide-back {
+    from { left: 50%; }
+    to   { left: 0; }
 }
 
 @media (min-width: 700px) {
-    body 
-    {
-        background: url(../img/bg-desktop.jpg) no-repeat top center/cover;
+    body {
+        background: url(/img/bg-desktop.jpg) no-repeat top center/cover;
     }
 
-
-    .light body
-    {
-        background: url(../img/bg-desktop-light.jpg) no-repeat top center/cover;
-    }
-}
-
-@keyframes slide-in
-{
-    from
-    {
-        left: 0;
-    }
-
-    to
-    {
-        left: 50%;
-    }
-}
-
-@keyframes slide-back
-{
-    from
-    {
-        left: 50%;
-    }
-
-    to
-    {
-        left: 0;
+    .light body {
+        background: url(/img/bg-desktop-light.jpg) no-repeat top center/cover;
     }
 }
