@@ -7,11 +7,12 @@ function toggleMode()
 
     if (html.classList.contains("light"))
     {
-        img.setAttribute("src", "/imagens/perfil - claro.jpg");
+        img.setAttribute("src", "imagens/perfil - claro.jpg");
     }
     else
     {
-        img.setAttribute("src", "/imagens/perfil - escuro.jpg");
+        img.setAttribute("src", "imagens/perfil - escuro.jpg");
     }    
+
 
 }
